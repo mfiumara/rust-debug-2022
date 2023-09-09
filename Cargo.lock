@@ -171,27 +171,27 @@ dependencies = [
  "embedded-storage",
  "fixed",
  "nb 1.1.0",
- "nrf52832-pac",
+ "nrf9160-pac",
  "rand_core",
  "void",
 ]
 
 [[package]]
-name = "nrf52832-hal"
+name = "nrf9160-hal"
 version = "0.16.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4e2e1d21d08826c02a2292d75f46a20e134c879dd2fcf09aa9bbca3d0d40db98"
+checksum = "905c59483ca89e800e2c962c4f3a88fb93e6e38467831cac4cba799f89bc11f3"
 dependencies = [
  "embedded-hal",
  "nrf-hal-common",
- "nrf52832-pac",
+ "nrf9160-pac",
 ]
 
 [[package]]
-name = "nrf52832-pac"
+name = "nrf9160-pac"
 version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0242b685c9c15648fb803e155628f42ace457478b2cb930868f40cae2db925e0"
+checksum = "7344d74afb5684e00c48d175cad9619f36d629cfb0687d33b4d1bb86fba688f4"
 dependencies = [
  "cortex-m",
  "cortex-m-rt",
@@ -228,7 +228,7 @@ version = "0.1.0"
 dependencies = [
  "alloc-cortex-m",
  "cortex-m-rt",
- "nrf52832-hal",
+ "nrf9160-hal",
 ]
 
 [[package]]
