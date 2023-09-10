@@ -19,8 +19,8 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get install binutils-arm-none-eabi gcc-arm-none-eabi
-        rustup target add thumbv8m.main-none-eabihf
+        rustup target add thumbv7em-none-eabihf
     - name: Build
       run: |
         cargo build --verbose
-        arm-none-eabi-size target/thumbv8m.main-none-eabihf/debug/rust-baremetal-debug
+        arm-none-eabi-size target/thumbv7em-none-eabihf/debug/rust-baremetal-debug
