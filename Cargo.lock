@@ -59,6 +59,7 @@ checksum = "8ec610d8f49840a5b376c69663b6369e71f4b34484b9b2eb29fb918d92516cb9"
 dependencies = [
  "bare-metal",
  "bitfield",
+ "critical-section",
  "embedded-hal",
  "volatile-register",
 ]
@@ -82,6 +83,12 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "critical-section"
+version = "1.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7059fff8937831a9ae6f0fe4d658ffabf58f2ca96aa9dec1c889f936f705f216"
 
 [[package]]
 name = "crunchy"
@@ -171,27 +178,40 @@ dependencies = [
  "embedded-storage",
  "fixed",
  "nb 1.1.0",
- "nrf9160-pac",
+ "nrf-usbd",
+ "nrf52840-pac",
  "rand_core",
  "void",
 ]
 
 [[package]]
-name = "nrf9160-hal"
-version = "0.16.0"
+name = "nrf-usbd"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "905c59483ca89e800e2c962c4f3a88fb93e6e38467831cac4cba799f89bc11f3"
+checksum = "66b2907c0b3ec4d264981c1fc5a2321d51c463d5a63d386e573f00e84d5495e6"
 dependencies = [
- "embedded-hal",
- "nrf-hal-common",
- "nrf9160-pac",
+ "cortex-m",
+ "critical-section",
+ "usb-device",
+ "vcell",
 ]
 
 [[package]]
-name = "nrf9160-pac"
+name = "nrf52840-hal"
+version = "0.16.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b54757ec98f38331889d1d6c535edb5dd543c762751abfe507f2d644b30f6d4f"
+dependencies = [
+ "embedded-hal",
+ "nrf-hal-common",
+ "nrf52840-pac",
+]
+
+[[package]]
+name = "nrf52840-pac"
 version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7344d74afb5684e00c48d175cad9619f36d629cfb0687d33b4d1bb86fba688f4"
+checksum = "30713f36f1be02e5bc9abefa30eae4a1f943d810f199d4923d3ad062d1be1b3d"
 dependencies = [
  "cortex-m",
  "cortex-m-rt",
@@ -223,12 +243,24 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
 
 [[package]]
+name = "rtt-target"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3afa12c77ba1b9bf560e4039a9b9a08bb9cde0e9e6923955eeb917dd8d5cf303"
+dependencies = [
+ "critical-section",
+ "ufmt-write",
+]
+
+[[package]]
 name = "rust-baremetal-debug"
 version = "0.1.0"
 dependencies = [
  "alloc-cortex-m",
+ "cortex-m",
  "cortex-m-rt",
- "nrf9160-hal",
+ "nrf52840-hal",
+ "rtt-target",
 ]
 
 [[package]]
@@ -279,10 +311,22 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "497961ef93d974e23eb6f433eb5fe1b7930b659f06d12dec6fc44a8f554c0bba"
 
 [[package]]
+name = "ufmt-write"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e87a2ed6b42ec5e28cc3b94c09982969e9227600b2e3dcbc1db927a84c06bd69"
+
+[[package]]
 name = "unicode-ident"
 version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "301abaae475aa91687eb82514b328ab47a211a533026cb25fc3e519b86adfc3c"
+
+[[package]]
+name = "usb-device"
+version = "0.2.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1f6cc3adc849b5292b4075fc0d5fdcf2f24866e88e336dd27a8943090a520508"
 
 [[package]]
 name = "vcell"

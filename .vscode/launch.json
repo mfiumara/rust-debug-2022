@@ -7,14 +7,14 @@
         {
             "name": "Cortex Debug",
             "cwd": "${workspaceFolder}",
-            "executable": "target/thumbv8m.main-none-eabihf/debug/rust-baremetal-debug",
-            "request": "attach",
+            "executable": "target/thumbv7em-none-eabihf/debug/rust-baremetal-debug",
+            "request": "launch",
             "type": "cortex-debug",
             "BMPGDBSerialPort": "/dev/cu.usbmodem98B724951",
             "servertype": "bmp",
             "interface": "swd",
             "runToEntryPoint": "main",
-            "postAttachCommands": ["mon rtt"]
+            "postLaunchCommands": ["mon rtt"],
         }
     ]
 }
