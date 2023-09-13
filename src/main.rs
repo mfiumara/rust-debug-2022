@@ -58,18 +58,13 @@ fn main() -> ! {
             Ok(_) => {
                 rprint!("{:X} ", i);
             }
+            Err(hal::twim::Error::AddressNack) => {
+                rprint!("-- ");
+            }
             Err(err) => {
-                match err {
-                    // In case of a NACK we print -- similar to i2cdetect on Linux
-                    hal::twim::Error::AddressNack => {
-                        rprint!("-- ");
-                    }
-                    _ => {
-                        // Handle other error types if needed
-                        rprintln!("Error reading from TWIM: {:?}\r", err);
-                        break;
-                    }
-                }
+                // Handle other error types if needed
+                rprintln!("Error reading from TWIM: {:?}\r", err);
+                break;
             }
         }
     }
